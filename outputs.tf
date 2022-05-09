@@ -47,3 +47,13 @@ output "security_group_name" {
   description = "Name of the DocumentDB cluster Security Group"
   value       = join("", aws_security_group.default.*.name)
 }
+
+output "master_password" {
+  value       = aws_docdb_cluster.default.*.master_password
+  description = "Password for the master DB user"
+}
+
+output "cluster_port" {
+  value = aws_docdb_cluster.default.*.port
+  description = "Cluster Port"
+}
